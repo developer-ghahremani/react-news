@@ -1,0 +1,9 @@
+{
+  "hi": "HIIII",
+  "home": "Home",
+  "news": "News",
+  "crypto": "Crypto",
+  "mode": "{{mode}} mode",
+  "light": "Light",
+  "dark": "Dark"
+}
