@@ -1,2 +1,2 @@
-@tailwind base;@tailwind components;@tailwind utilities
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&display=swap");@tailwind base;@tailwind components;@tailwind utilities;.tag-container{@apply border-[2px] border-secondary rounded-full px-3 py-[.5px] mt-2 sm:mt-0 cursor-pointer}.latest-news-container{@apply md:grid-cols-4 grid grid-cols-1 gap-4 mt-8}
 /*# sourceMappingURL=main.min.css.map */

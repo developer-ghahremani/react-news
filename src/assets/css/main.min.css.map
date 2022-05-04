@@ -1,8 +1,10 @@
 {
     "version": 3,
-    "mappings": "AAAA,SAAS,CAAT,IAAS,CACT,SAAS,CAAT,UAAS,CACT,SAAS,CAAT,SAAS",
+    "mappings": "ACAA,OAAO,CAAC,gGAAI,CACZ,SAAS,CAAT,IAAS,CACT,SAAS,CAAT,UAAS,CACT,SAAS,CAAT,SAAS,CCHT,AAAA,cAAc,AAAC,CACb,MAAM,CAAN,qFAAM,CACP,AAED,AAAA,sBAAsB,AAAC,CAErB,MAAM,CAAN,0CAAM,CACP",
     "sources": [
-        "../sass/main.scss"
+        "../sass/main.scss",
+        "../sass/_initital.scss",
+        "../sass/_components.scss"
     ],
     "names": [],
     "file": "main.min.css"

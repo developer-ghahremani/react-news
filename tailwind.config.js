@@ -8,6 +8,9 @@ module.exports = {
         "gray-light": "#eaeaea",
         "brown-light": "#f9f4ed",
       },
+      fontFamily: {
+        nunito: ["Nunito", "sans-serif"],
+      },
     },
   },
   plugins: [],
