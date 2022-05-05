@@ -4,12 +4,21 @@ import moment from "moment";
 
 type Props = {
   news: NewsModel;
+  imageHeight?: number;
 };
 
-const News = (props: Props) => {
+const News = ({ imageHeight = 32, ...props }: Props) => {
   return (
-    <div className="cursor-pointer">
-      <img src={props.news.urlToImage} className="w-full h-32" alt="" />
+    <a
+      href={props.news.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="cursor-pointer">
+      <img
+        src={props.news.urlToImage}
+        className={`w-full h-${imageHeight}`}
+        alt=""
+      />
       <p className="news-title text-ellipsis whitespace-nowrap my-2 overflow-hidden font-semibold leading-4">
         {props.news.title}
       </p>
@@ -21,7 +30,7 @@ const News = (props: Props) => {
       </p>
       {/* <p >{props.news.source.name}</p> */}
       <div className="h-[1px] bg-gray-200 my-2"></div>
-    </div>
+    </a>
   );
 };
 

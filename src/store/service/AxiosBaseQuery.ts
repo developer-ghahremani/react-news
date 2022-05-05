@@ -1,10 +1,13 @@
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
 import { BaseQueryFn } from "@reduxjs/toolkit/dist/query";
+import { NewsBaseUrl } from "./news";
+import { coinEndpoint } from "constant";
+import { newsEndpoints } from "./../../constant/endpoints";
 import sources from "constant/source";
 
 export const axiosBaseQuery = (
-  { baseUrl }: { baseUrl: string } = { baseUrl: "" }
+  { baseURL }: { baseURL: string } = { baseURL: "" }
 ): BaseQueryFn<
   {
     url: string;
@@ -15,15 +18,20 @@ export const axiosBaseQuery = (
   unknown,
   unknown
 > => {
-  axios.interceptors.request.use((value) => {
+  const api = axios.create({ baseURL });
+
+  api.interceptors.request.use((value) => {
     const params = { ...value.params };
     params.apiKey = "03c6dc7bfbdd45ac8eab98aa84580a4c";
-    value.params = params;
+    const values = Object.values(coinEndpoint);
+    const isCoinEndpoint = values.find((item) => item === value.url);
+    if (isCoinEndpoint) value.baseURL = "https://api.coinranking.com/v2";
+    if (value.baseURL === NewsBaseUrl) value.params = params;
     return value;
   });
 
-  axios.interceptors.response.use((value) => {
-    if (value.config.url === "https://newsapi.org/v2/top-headlines")
+  api.interceptors.response.use((value) => {
+    if (value.config.url === newsEndpoints.topHeadlines)
       return {
         ...value,
         data: {
@@ -39,7 +47,7 @@ export const axiosBaseQuery = (
 
   return async ({ url, method, data, params }) => {
     try {
-      const result = await axios({ url: baseUrl + url, method, data, params });
+      const result = await api({ url, method, data, params });
       return { data: result.data };
     } catch (axiosError) {
       let err = axiosError as AxiosError;

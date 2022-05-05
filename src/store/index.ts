@@ -2,21 +2,21 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 import { combineReducers } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
-import newsService from "./news.service";
 import { persistReducer } from "redux-persist";
+import service from "./service";
 import settings from "./settings";
 import storage from "redux-persist/lib/storage";
 
 const reducers = combineReducers({
   [settings.name]: settings.reducer,
-  [newsService.reducerPath]: newsService.reducer,
+  [service.reducerPath]: service.reducer,
 });
 
 const persistedReducer = persistReducer(
   {
     key: "root",
     storage,
-    blacklist: [newsService.reducerPath],
+    blacklist: [service.reducerPath],
   },
   reducers
 );
@@ -25,7 +25,7 @@ const store = configureStore({
   reducer: persistedReducer,
   devTools: process.env.NODE_ENV !== "production",
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(newsService.middleware),
+    getDefaultMiddleware().concat(service.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

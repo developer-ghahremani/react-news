@@ -6,3 +6,7 @@
   // @apply md:grid-cols-4 animate__animated animate__slideInUp dura grid grid-cols-1 gap-4 mt-8;
   @apply md:grid-cols-4 grid grid-cols-1 gap-4 mt-8;
 }
+
+.coin-item-contianer {
+  @apply hover:shadow-lg hover:px-4 hover:rounded-lg flex items-center justify-between py-4 duration-500 cursor-pointer;
+}

@@ -3,12 +3,13 @@ import {
   latestNewsInitiaState,
   latestNewsReducer,
 } from "./context";
-import React, { useReducer } from "react";
 
+import Loading from "components/Loading";
 import { NewsItem } from "components/items";
 import Tags from "./Tags";
-import { useGetTopHeadlineNewsQuery } from "store/news.service";
+import { useGetTopHeadlineNewsQuery } from "store/service";
 import { useI18Next } from "i18n";
+import { useReducer } from "react";
 
 type Props = { className?: string };
 
@@ -19,7 +20,7 @@ const LatestNews = (props: Props) => {
     latestNewsInitiaState
   );
 
-  const { data, isFetching, isError } = useGetTopHeadlineNewsQuery({
+  const { data, isFetching } = useGetTopHeadlineNewsQuery({
     q: state.tag?.value,
   });
 
@@ -35,9 +36,13 @@ const LatestNews = (props: Props) => {
               <NewsItem key={news.urlToImage} news={news} />
             ))}
           </div>
-          <div className="md:order-2 md:col-span-2 order-1 col-span-1 bg-blue-900"></div>
+          <div className="md:order-2 md:col-span-2 order-1 col-span-1">
+            {data?.articles.slice(3, 5).map((news) => (
+              <NewsItem imageHeight={48} key={news.urlToImage} news={news} />
+            ))}
+          </div>
           <div className="md:order-3 order-3 col-span-1">
-            {data?.articles.slice(3, 6).map((news) => (
+            {data?.articles.slice(5, 8).map((news) => (
               <NewsItem key={news.urlToImage} news={news} />
             ))}
           </div>

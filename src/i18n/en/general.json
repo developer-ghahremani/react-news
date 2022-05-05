@@ -6,5 +6,10 @@
   "mode": "{{mode}} mode",
   "light": "Light",
   "dark": "Dark",
-  "latestNews": "Latest news"
+  "latestNews": "Latest news",
+  "price": "Price",
+  "marketCap": "Market cap",
+  "allCoins": "All coins",
+  "cryptoCurrencies": "Crypto currencies",
+  "showAll": "Show all"
 }
