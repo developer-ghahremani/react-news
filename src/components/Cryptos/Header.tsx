@@ -51,7 +51,7 @@ const Header = () => {
           />
         </div>
       </div>
-      <div className=" flex justify-center flex-1">
+      <div className=" md:flex justify-center flex-1 hidden">
         <p
           className="cursor-pointer"
           onClick={() => handlePriceClick("marketCap")}>
