@@ -15,5 +15,13 @@
   "chart": "Chart",
   "24HChange": "24H change",
   "detail": "Detail",
-  "coinRankingLink": "CoinRanking link"
+  "coinRankingLink": "CoinRanking link",
+  "webSiteLink": "Website link",
+  "priceTOBTC": "Price TO BTC",
+  "rank": "rank",
+  "24hVolume": "24H volume",
+  "allTimeHigh": "All time high",
+  "numberOfMarkets": "Number of markets",
+  "numberOfExchanges": "Number of exchanges",
+  "links": "Links"
 }
