@@ -22,11 +22,27 @@ export const axiosBaseQuery = (
 
   api.interceptors.request.use((value) => {
     const params = { ...value.params };
-    params.apiKey = "03c6dc7bfbdd45ac8eab98aa84580a4c";
+    const headers = { ...value.headers };
+
     const values = Object.values(coinEndpoint);
     const isCoinEndpoint = values.find((item) => value.url?.includes(item));
-    if (isCoinEndpoint) value.baseURL = "https://api.coinranking.com/v2";
-    if (value.baseURL === NewsBaseUrl) value.params = params;
+
+    if (isCoinEndpoint) {
+      value.baseURL = "https://api.coinranking.com/v2";
+
+      headers["x-access-token"] =
+        "coinranking2810f93573dd342eb4079572732a3a7bee6d621da0cdbc08";
+
+      params["x-access-token"] =
+        "coinranking2810f93573dd342eb4079572732a3a7bee6d621da0cdbc08";
+    }
+
+    if (value.baseURL === NewsBaseUrl)
+      params.apiKey = "03c6dc7bfbdd45ac8eab98aa84580a4c";
+
+    value.headers = headers;
+    value.params = params;
+
     return value;
   });
 

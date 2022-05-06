@@ -1,18 +1,37 @@
-import { HeartIcon, ShareIcon } from "components/icons";
+import { HeartFilledIcon, HeartIcon, ShareIcon } from "components/icons";
+import { useAppDispatch, useAppSelector } from "store";
 
 import { Coin } from "models/Coin.model";
 import React from "react";
+import { toggleFavorite } from "store/favoriteCoins";
 import { useI18Next } from "i18n";
 
 type Props = { coin: Coin };
 
 const Header = (props: Props) => {
   const { t } = useI18Next();
+  const dispatch = useAppDispatch();
+  const favoriteCoins = useAppSelector((s) => s.favoriteCoins);
+
+  const hanleToggleFavo = () => {
+    dispatch(toggleFavorite(props.coin));
+  };
+
   const options: { icon: JSX.Element; title?: string; onClick: () => void }[] =
     [
       {
-        icon: <HeartIcon className="text-primary" size={20} />,
-        onClick: () => {},
+        icon: favoriteCoins.find((item) => item.uuid === props.coin.uuid) ? (
+          <HeartFilledIcon
+            className="text-primary animate__animated animate__heartBeat"
+            size={20}
+          />
+        ) : (
+          <HeartIcon
+            className="text-primary animate__animated animate__heartBeat"
+            size={20}
+          />
+        ),
+        onClick: hanleToggleFavo,
         title: "favo",
       },
       {
@@ -21,13 +40,15 @@ const Header = (props: Props) => {
         title: "share",
       },
     ];
+
   return (
     <div>
       <div className="flex justify-end mt-4">
         {options.map((item, index) => (
           <div
-            className="coin-option-contianer"
             style={{ animationDelay: `${index / 2}s` }}
+            className="coin-option-contianer"
+            onClick={item.onClick}
             key={item.title}>
             {item.icon}
           </div>

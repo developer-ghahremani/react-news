@@ -80,7 +80,7 @@ const CoinInfo = (props: Props) => {
   ];
 
   return (
-    <div className="md:grid-cols-2 grid col-span-1 gap-4">
+    <div className="md:grid-cols-2 grid col-span-1 gap-4 mt-8">
       <div className="flex flex-col">
         <p className="text-2xl font-bold">{`${props.coin.name} (${props.coin.symbol})`}</p>
         <p
@@ -89,7 +89,7 @@ const CoinInfo = (props: Props) => {
             __html: props.coin.description || "",
           }}></p>
       </div>
-      <div className="bg-primary bg-opacity-10 h-fit flex flex-col p-2 rounded-lg">
+      <div className="bg-primary bg-opacity-5 h-fit flex flex-col p-2 rounded-lg">
         <p className="text-2xl font-bold">{`${props.coin.name} ${t(
           "general.detail"
         )}`}</p>

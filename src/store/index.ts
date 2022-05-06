@@ -2,6 +2,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 import { combineReducers } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
+import favoriteCoins from "./favoriteCoins";
 import { persistReducer } from "redux-persist";
 import service from "./service";
 import settings from "./settings";
@@ -10,6 +11,7 @@ import storage from "redux-persist/lib/storage";
 const reducers = combineReducers({
   [settings.name]: settings.reducer,
   [service.reducerPath]: service.reducer,
+  [favoriteCoins.name]: favoriteCoins.reducer,
 });
 
 const persistedReducer = persistReducer(

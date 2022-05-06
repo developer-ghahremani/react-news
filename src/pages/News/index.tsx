@@ -1,9 +1,15 @@
+import LatestNews from "components/LatestNews";
+import { MainLayout } from "components/layout";
 import React from "react";
 
 type Props = {};
 
 const News = (props: Props) => {
-  return <div>News</div>;
+  return (
+    <MainLayout>
+      <LatestNews />
+    </MainLayout>
+  );
 };
 
 export default News;

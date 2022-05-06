@@ -1,6 +1,7 @@
 import Coin from "./Coin";
 import Cryptos from "./Cryptos";
 import Home from "./Home";
+import News from "./News";
 import { pageNames } from "constant";
 
 const routes: { path: string; element: JSX.Element }[] = [
@@ -15,6 +16,10 @@ const routes: { path: string; element: JSX.Element }[] = [
   {
     path: pageNames.coin,
     element: <Coin />,
+  },
+  {
+    path: pageNames.news,
+    element: <News />,
   },
 ];
 

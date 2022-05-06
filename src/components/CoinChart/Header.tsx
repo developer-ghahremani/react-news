@@ -7,6 +7,7 @@ type Props = { coin: Coin };
 
 const Header = (props: Props) => {
   const { t } = useI18Next();
+
   const options: { title: string; value: string; className?: string }[] = [
     {
       title: t("general.price"),
@@ -19,8 +20,9 @@ const Header = (props: Props) => {
         parseInt(props.coin.change) > 0 ? "text-green:900" : "text-primary",
     },
   ];
+
   return (
-    <div className="flex justify-between">
+    <div className="bg-primary bg-opacity-5 flex justify-between p-2 rounded-lg">
       <p className="text-2xl font-bold">
         {`${props.coin.symbol} ${t("general.price")} ${t("general.chart")}`}
       </p>

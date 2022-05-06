@@ -1,10 +1,11 @@
-import { ISwitch } from "components/general";
 import { MenuIcon, MoonIcon, SunIcon } from "components/icons";
-import { useI18Next } from "i18n";
-import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "store";
-import { toggleDarkMode } from "store/settings";
+
+import { ISwitch } from "components/general";
+import { Link } from "react-router-dom";
 import menu from "./menu";
+import { toggleDarkMode } from "store/settings";
+import { useI18Next } from "i18n";
 
 const Navbar = () => {
   const { t } = useI18Next();
@@ -24,7 +25,7 @@ const Navbar = () => {
             <Link to={item.link}>
               <p
                 key={item.title}
-                className={`${index === 0 ? "mx-0" : "ml-2"}`}>
+                className={`${index === 0 ? "mx-0" : "ml-6"}`}>
                 {t(`general.${item.title}`)}
               </p>
             </Link>
