@@ -15,5 +15,10 @@ const newsService = createApi({
   }),
 });
 
-export const { useGetTopHeadlineNewsQuery, useGetCoinsQuery } = newsService;
+export const {
+  useGetTopHeadlineNewsQuery,
+  useGetCoinsQuery,
+  useGetCoinQuery,
+  useGetCoinHistoryQuery,
+} = newsService;
 export default newsService;

@@ -1,7 +1,8 @@
 const pageNames = {
   home: "/",
   news: "/news",
-  crypto: "/crypto",
+  crypto: "/cryptos",
+  coin: "/coin",
 };
 
 export default pageNames;

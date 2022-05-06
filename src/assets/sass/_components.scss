@@ -10,3 +10,7 @@
 .coin-item-contianer {
   @apply hover:shadow-lg hover:px-4 hover:rounded-lg flex items-center justify-between py-4 duration-500 cursor-pointer;
 }
+
+.coin-option-contianer {
+  @apply bg-primary bg-opacity-30 p-[5px] mx-2 rounded-md cursor-pointer hover:scale-125 duration-300;
+}

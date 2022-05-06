@@ -1,8 +1,11 @@
 import { Sparklines, SparklinesLine } from "react-sparklines";
 
 import { Coin as CoinModel } from "models/Coin.model";
+import { Link } from "react-router-dom";
 import React from "react";
 import { millify } from "millify";
+import { pageNames } from "constant";
+import { stringifyUrl } from "query-string";
 
 type Props = {
   coin: CoinModel;
@@ -10,7 +13,12 @@ type Props = {
 
 const Coin = (props: Props) => {
   return (
-    <div className="coin-item-contianer">
+    <Link
+      to={stringifyUrl({
+        url: pageNames.coin,
+        query: { coin: props.coin.uuid },
+      })}
+      className="coin-item-contianer">
       <div className="flex items-center flex-1">
         <p>{props.coin.rank}</p>
         <div className="flex items-center mx-4">
@@ -39,7 +47,7 @@ const Coin = (props: Props) => {
         style={{ width: "120px" }}>
         <SparklinesLine color={props.coin.color} />
       </Sparklines>
-    </div>
+    </Link>
   );
 };
 

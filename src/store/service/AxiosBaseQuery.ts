@@ -24,7 +24,7 @@ export const axiosBaseQuery = (
     const params = { ...value.params };
     params.apiKey = "03c6dc7bfbdd45ac8eab98aa84580a4c";
     const values = Object.values(coinEndpoint);
-    const isCoinEndpoint = values.find((item) => item === value.url);
+    const isCoinEndpoint = values.find((item) => value.url?.includes(item));
     if (isCoinEndpoint) value.baseURL = "https://api.coinranking.com/v2";
     if (value.baseURL === NewsBaseUrl) value.params = params;
     return value;

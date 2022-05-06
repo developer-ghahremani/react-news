@@ -2,6 +2,7 @@ import { DownIcon, UpIcon } from "components/icons";
 import { parse, stringifyUrl } from "query-string";
 import { useLocation, useNavigate } from "react-router-dom";
 
+import constants from "constant";
 import { useI18Next } from "i18n";
 
 const Header = () => {
@@ -15,10 +16,11 @@ const Header = () => {
       orderBy: order,
     };
 
-    if (!orderDirection) query.orderDirection = "desc";
-    if (orderDirection === "desc") query.orderDirection = "asc";
-    if (orderDirection === "asc") query.orderDirection = "desc";
-    if (orderBy === "price" && orderDirection === "asc") query = {};
+    if (!orderDirection) query.orderDirection = constants.desc;
+    if (orderDirection === constants.desc) query.orderDirection = constants.asc;
+    if (orderDirection === constants.asc) query.orderDirection = constants.desc;
+    if (orderBy === constants.price && orderDirection === constants.asc)
+      query = {};
 
     navigate(
       stringifyUrl({
@@ -40,13 +42,17 @@ const Header = () => {
         <div className="flex flex-col mx-2">
           <UpIcon
             color={
-              orderBy === "price" && orderDirection === "desc" ? "red" : "gray"
+              orderBy === constants.price && orderDirection === constants.desc
+                ? "red"
+                : "gray"
             }
           />
           <DownIcon
             style={{ marginTop: "-10px" }}
             color={
-              orderBy === "price" && orderDirection === "asc" ? "red" : "gray"
+              orderBy === constants.price && orderDirection === constants.asc
+                ? "red"
+                : "gray"
             }
           />
         </div>
@@ -60,7 +66,8 @@ const Header = () => {
         <div className="flex flex-col mx-2">
           <UpIcon
             color={
-              orderBy === "marketCap" && orderDirection === "desc"
+              orderBy === constants.marketCap &&
+              orderDirection === constants.desc
                 ? "red"
                 : "gray"
             }
@@ -68,7 +75,8 @@ const Header = () => {
           <DownIcon
             style={{ marginTop: "-10px" }}
             color={
-              orderBy === "marketCap" && orderDirection === "asc"
+              orderBy === constants.marketCap &&
+              orderDirection === constants.asc
                 ? "red"
                 : "gray"
             }

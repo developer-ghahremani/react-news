@@ -11,5 +11,9 @@
   "marketCap": "Market cap",
   "allCoins": "All coins",
   "cryptoCurrencies": "Crypto currencies",
-  "showAll": "Show all"
+  "showAll": "Show all",
+  "chart": "Chart",
+  "24HChange": "24H change",
+  "detail": "Detail",
+  "coinRankingLink": "CoinRanking link"
 }

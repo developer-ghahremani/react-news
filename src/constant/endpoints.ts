@@ -4,4 +4,5 @@ export const newsEndpoints = {
 
 export const coinEndpoint = {
   coins: "/coins",
+  coin: "/coin",
 };

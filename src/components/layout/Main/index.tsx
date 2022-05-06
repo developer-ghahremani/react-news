@@ -18,6 +18,7 @@ const MainLayout = (props: Props) => {
       <div className="lg:mx-auto md:mx-16 max-w-5xl pt-5 mx-10">
         <Navbar />
         <div>{props.children}</div>
+        <div className="h-16"></div>
       </div>
     </div>
   );

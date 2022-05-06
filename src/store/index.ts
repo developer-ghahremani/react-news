@@ -16,7 +16,7 @@ const persistedReducer = persistReducer(
   {
     key: "root",
     storage,
-    blacklist: [service.reducerPath],
+    // blacklist: [service.reducerPath],
   },
   reducers
 );
